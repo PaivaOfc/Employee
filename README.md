@@ -1,30 +1,86 @@
-# Employee
+# Employee (Console + Maven)
 
-Projeto em **Java** com foco em estudo e prática, envolvendo o domínio **Employee (Funcionário)**.
+Aplicação **Java (console)** para praticar **herança e polimorfismo** com o domínio de funcionários.
 
-## Sobre o projeto
+O programa lê dados de *N* funcionários pelo terminal. Para cada funcionário, você informa se ele é **terceirizado** (`OutsourcedEmployee`) ou **normal** (`Employee`). No final, o sistema imprime a lista de **pagamentos** calculados.
 
-O **Employee** é um projeto de aprendizado em Java que modela e manipula dados de funcionários (ex.: cadastro, listagem, atualização e remoção), podendo evoluir para uma API, aplicação console ou aplicação web.
+## O que existe no projeto (código atual)
 
-## Funcionalidades
+- `entities/Employee`
+  - Campos: `name`, `hours`, `valuePerHour`
+  - Método `payment(hours, valuePerHour)` calcula `hours * valuePerHour`
+  - `toString()` imprime: `Nome - $<pagamento>`
 
-- Cadastro de funcionários
-- Listagem de funcionários
-- Atualização de dados
-- Remoção de funcionário
+- `entities/OutsourcedEmployee extends Employee`
+  - Campo: `additionalCharge`
+  - Sobrescreve `payment(...)` somando **110%** do `additionalCharge` ao pagamento base
 
+- `org.example.Main`
+  - Lê a quantidade de funcionários
+  - Para cada funcionário, lê os dados via `Scanner`
+  - Imprime `PAYMENTS:` e depois imprime cada objeto (usando `toString()`)
 
 ## Requisitos
 
-- **Java/JDK**: 17+ (ou a versão que você estiver usando)
+- **Java/JDK**: o `pom.xml` está configurado com `maven.compiler.source/target = 25` (Java 25)
 - **Maven**
-- Git
 
-> Dica: verifique se existe `pom.xml` (Maven) ou `build.gradle` / `build.gradle.kts` (Gradle) na raiz do projeto.
+## Como executar
 
-## Como baixar o projeto
+### 1) Compilar
 
 ```bash
-git clone https://github.com/PaivaOfc/Employee.git
-cd Employee
+mvn clean compile
 ```
+
+### 2) Rodar
+
+O projeto não está configurado no `pom.xml` para gerar um `.jar` executável, então a forma mais simples é executar a classe `Main` pela sua IDE (IntelliJ/Eclipse).
+
+> Se você quiser rodar pelo terminal via Maven, dá para adicionar o `exec-maven-plugin` no `pom.xml` e então usar:
+>
+> ```bash
+> mvn exec:java
+> ```
+
+## Exemplo de uso (entrada/saída)
+
+Exemplo de interação no console (aproximado):
+
+```text
+Enter the number of employees: 2
+Employee #1 data:
+Outsourced? (y/n): n
+Name: Alex
+Hours: 40
+Value per hour: 20
+Employee #2 data:
+Outsourced? (y/n): y
+Name: Bob
+Hours: 40
+Value per hour: 20
+Addicional charge: 200
+PAYMENTS:
+Alex - $800.00
+Bob - $1020.00
+```
+
+## Estrutura de pastas
+
+```
+.
+├── pom.xml
+└── src
+    └── main
+        └── java
+            ├── entities
+            │   ├── Employee.java
+            │   └── OutsourcedEmployee.java
+            └── org
+                └── example
+                    └── Main.java
+```
+
+## Autor
+
+- GitHub: https://github.com/PaivaOfc
