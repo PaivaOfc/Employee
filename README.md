@@ -1,12 +1,12 @@
 # Employee
 
-Projeto em **Java** com foco em estudo e prática, envolvendo o domínio **Employee (Funcionário)**. Este repositório pode ser usado como base para treinar conceitos como POO, camadas (model/service/repository), validações e persistência (se aplicável).
+Projeto em **Java** com foco em estudo e prática, envolvendo o domínio **Employee (Funcionário)**.
 
 ## Sobre o projeto
 
 O **Employee** é um projeto de aprendizado em Java que modela e manipula dados de funcionários (ex.: cadastro, listagem, atualização e remoção), podendo evoluir para uma API, aplicação console ou aplicação web.
 
-## Funcionalidades (exemplos)
+## Funcionalidades
 
 - Cadastro de funcionários
 - Listagem de funcionários
