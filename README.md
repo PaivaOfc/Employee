@@ -12,13 +12,12 @@ O **Employee** é um projeto de aprendizado em Java que modela e manipula dados 
 - Listagem de funcionários
 - Atualização de dados
 - Remoção de funcionário
-- (Opcional) Persistência em arquivo/JSON/banco de dados
-- (Opcional) Validações e regras de negócio
+
 
 ## Requisitos
 
 - **Java/JDK**: 17+ (ou a versão que você estiver usando)
-- (Opcional) **Maven** e/ou **Gradle** (dependendo do projeto)
+- **Maven**
 - Git
 
 > Dica: verifique se existe `pom.xml` (Maven) ou `build.gradle` / `build.gradle.kts` (Gradle) na raiz do projeto.
